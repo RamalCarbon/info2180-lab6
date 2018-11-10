@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+	</head>
+	
+	<body>
+		<input type="button" value="Search" onClick="Search()">
+	</body>
+	
+	<script>
+
+		<!-- var httpRequest= new XMLHttpRequest(); -->
+		<!-- var url= "request.php" -->
+		
+		<!-- httpRequest.onreadystatechange= function(); -->
+		<!-- httpRequest.open("GET",url); -->
+		<!-- httpRequest.send(); -->
+		
+		<!-- function search(){ -->
+		<!-- if(httpRequest.readyState==XMLHttpRequest.DONE && httpRequest.status== 200){ -->
+			<!-- var response= httpRequest.responseText; -->
+			<!-- alert(response); -->
+			<!-- }  -->
+		<!-- else{ -->
+			<!-- alert("something went wrong"); -->
+		<!-- } -->
+		<!-- } -->
+		var ajax = new XMLHttpRequest();
+		var url= "request.php"
+		
+		ajax.open("GET", url, true);
+		ajax.send();
+		
+		ajax.onreadystatechange= function(){
+					
+			if (ajax.readyState== ajax.DONE && ajax.status==200){
+			
+				var response= ajax.responseText;
+					alert(response);
+			}
+			else{
+				alert("something went wrong")
+			}
+		}
+	</script>
+
+</html>
