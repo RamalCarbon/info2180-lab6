@@ -2,20 +2,23 @@
 
 <html>
 	<head>
-		<title>
-			
-		</title>
 		
-		</script>
+		<meta charset="UTF-8">
+		<title>info2180-lab6</title>
+		
 	</head>
 	
 	<body>
+		<p>Search for Web development terminology here.</p>
+		<input id="textBox" type= "text">
 		<br><br><input type="button" value="Search" onClick="Search()">
 		
 		<script>
-			let Search= function(){	
+			let Search= function(){
+				var textBoxId= document.getElementById("textBox");
+				var toSearch= textBoxId.value;
 				var ajax = new XMLHttpRequest();
-				var url= "/request.php?q=definition";
+				var url= "https://info2180-lab6-cabo88.c9users.io/request.php?q="+toSearch;
 				
 				ajax.open("GET", url, true);
 				ajax.send();
@@ -25,7 +28,7 @@
 					if (ajax.readyState == ajax.DONE) {
 						if (ajax.status == 200) {
 							var response= ajax.responseText;
-								alert(response);
+								document.getElementById("result").innerHTML=response;
 						}
 							else{
 								alert("something went wrong");
@@ -34,6 +37,13 @@
 				};
 			};
 		</script>
+		
+		<br><br>
+		
+		<h3>Results</h3>
+
+		<div id="result">Your results appear here</div>
+		
 	</body>
 
 </html>
